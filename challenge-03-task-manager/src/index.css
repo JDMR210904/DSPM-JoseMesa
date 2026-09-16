@@ -1,0 +1,57 @@
+:root {
+  --ion-background-color: #f4f5f7;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+ion-toolbar {
+  --background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  --color: #ffffff;
+}
+
+ion-content.ion-padding {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 20px;
+}
+
+/* Formulario de agregar tarea */
+ion-content.ion-padding > ion-item:first-of-type {
+  --background: #ffffff;
+  --border-radius: 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+/* Lista de tareas */
+ion-content.ion-padding ion-list {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+ion-item {
+  --padding-start: 14px;
+}
+
+ion-checkbox {
+  --size: 22px;
+  --border-radius: 6px;
+  margin-right: 8px;
+}
+
+ion-badge {
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+p.ion-text-center {
+  margin-top: 40px;
+  color: var(--ion-color-medium);
+  font-size: 15px;
+}
