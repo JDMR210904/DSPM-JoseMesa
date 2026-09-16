@@ -1,0 +1,9 @@
+/* Colores base de la app, siguiendo la paleta usada en la PWA */
+:root {
+  --ion-color-primary: #2563eb;
+  --ion-color-primary-rgb: 37, 99, 235;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #2156ce;
+  --ion-color-primary-tint: #3b72ec;
+}
