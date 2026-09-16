@@ -1,0 +1,90 @@
+/* ---- Login ---- */
+.login-bg {
+  --background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+}
+
+.login-wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 26px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.login-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-avatar ion-icon {
+  font-size: 32px;
+  color: white;
+}
+
+.login-title {
+  margin: 0 0 4px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.login-subtitle {
+  margin: 0 0 22px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.login-field {
+  --background: #f1f5f9;
+  --border-radius: 10px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+}
+
+.login-error {
+  font-size: 13px;
+  margin: 4px 0 10px;
+}
+
+.login-button {
+  --border-radius: 10px;
+  --background: linear-gradient(135deg, #0ea5e9, #10b981);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* ---- List / Welcome ---- */
+.welcome-bg {
+  --background: #f8fafc;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.welcome-icon {
+  font-size: 64px;
+  color: #10b981;
+  margin-bottom: 12px;
+}
