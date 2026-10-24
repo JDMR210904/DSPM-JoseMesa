@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cada usuario tiene un documento users/{uid} con sus puntos y misiones.
+    // Cualquier usuario logueado puede LEER (para el ranking),
+    // pero solo el dueño puede ESCRIBIR su propio documento.
+    match /users/{uid} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.points is int
+        && request.resource.data.points >= 0
+        && request.resource.data.points <= 120;
+      allow delete: if false;
+    }
+  }
+}

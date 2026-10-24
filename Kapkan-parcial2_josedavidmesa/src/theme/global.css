@@ -1,0 +1,269 @@
+/* ════════════════════════════════════════════════════════════
+   Kapkan — tema oscuro con degradados neón y efecto vidrio
+   ════════════════════════════════════════════════════════════ */
+:root {
+  --bg: #07060f;
+  --bg-2: #0e0c1d;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.11);
+  --text: #f6f4ff;
+  --muted: #a5a2c7;
+  --dim: #6e6b91;
+
+  --pink: #ff3d81;
+  --orange: #ff8a3d;
+  --cyan: #00e0ff;
+  --blue: #3d5afe;
+  --violet: #b14dff;
+  --lime: #b6ff3d;
+  --gold: #ffd23d;
+
+  --grad-brand: linear-gradient(100deg, #ff3d81 0%, #b14dff 50%, #00e0ff 100%);
+  --grad-success: linear-gradient(135deg, #b6ff3d 0%, #00e0a4 100%);
+  --radius: 22px;
+  --font: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-num: 'Space Grotesk', 'Outfit', system-ui, sans-serif;
+
+  /* Variables de Ionic */
+  --ion-font-family: var(--font);
+  --ion-background-color: var(--bg);
+  --ion-background-color-rgb: 7, 6, 15;
+  --ion-text-color: var(--text);
+  --ion-text-color-rgb: 246, 244, 255;
+  --ion-item-background: transparent;
+  --ion-border-color: var(--border);
+  --ion-color-primary: #b14dff;
+  --ion-color-primary-rgb: 177, 77, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #9c44e0;
+  --ion-color-primary-tint: #b95fff;
+  --ion-color-danger: #ff4d6d;
+  --ion-tab-bar-background: rgba(14, 12, 29, 0.72);
+  --ion-tab-bar-border-color: transparent;
+  --ion-tab-bar-color: var(--dim);
+  --ion-tab-bar-color-selected: var(--text);
+}
+
+html, body { background: var(--bg); color: var(--text); font-family: var(--font); }
+ion-content { --background: var(--bg); }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* ── Fondo aurora animado ── */
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.aurora .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.55; animation: float 18s ease-in-out infinite; }
+.aurora .b1 { width: 340px; height: 340px; background: #ff3d81; top: -120px; left: -110px; }
+.aurora .b2 { width: 380px; height: 380px; background: #6a3dff; top: 30%; right: -170px; animation-delay: -6s; }
+.aurora .b3 { width: 300px; height: 300px; background: #00c2ff; bottom: -130px; left: -60px; animation-delay: -12s; opacity: 0.4; }
+.aurora .grid {
+  position: absolute; inset: 0; opacity: 0.35;
+  background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 75%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 75%);
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 30px) scale(1.12); }
+  66% { transform: translate(-30px, 20px) scale(0.92); }
+}
+
+/* ── Layout ── */
+.page { position: relative; z-index: 1; padding: calc(env(safe-area-inset-top) + 18px) 18px 120px; max-width: 560px; margin: 0 auto; }
+.page.center { min-height: 100%; display: flex; flex-direction: column; justify-content: center; padding-bottom: 32px; }
+.row { display: flex; align-items: center; gap: 12px; }
+.between { justify-content: space-between; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.muted { color: var(--muted); }
+.dim { color: var(--dim); }
+.num { font-family: var(--font-num); letter-spacing: -0.02em; }
+.grad-text { background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 26px 4px 12px; }
+
+/* ── Tarjeta de vidrio ── */
+.glass {
+  position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.glass.pad { padding: 20px; }
+.glow-border::before {
+  content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+  background: var(--grad-brand); opacity: 0.8;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+
+/* ── Botones ── */
+.btn {
+  appearance: none; border: 0; cursor: pointer; width: 100%; height: 56px; border-radius: 18px;
+  font: 700 16px var(--font); letter-spacing: 0.02em; color: #fff; display: inline-flex; align-items: center;
+  justify-content: center; gap: 10px; transition: transform 0.15s ease, filter 0.2s ease, opacity 0.2s;
+  position: relative; overflow: hidden;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn-primary { background: var(--grad-brand); background-size: 200% 100%; box-shadow: 0 10px 30px rgba(177, 77, 255, 0.45); animation: shimmer 6s linear infinite; }
+.btn-ghost { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); }
+.btn-success { background: var(--grad-success); color: #062016; box-shadow: 0 10px 30px rgba(120, 255, 120, 0.3); }
+.btn-danger { background: rgba(255, 77, 109, 0.12); border: 1px solid rgba(255, 77, 109, 0.4); color: #ff8098; }
+.btn ion-icon { font-size: 22px; }
+.link-btn { background: none; border: 0; color: var(--muted); font: 500 15px var(--font); padding: 14px; width: 100%; cursor: pointer; }
+.link-btn b { color: var(--text); }
+@keyframes shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+/* ── Inputs ── */
+.field { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 16px; padding: 0 16px; height: 58px; transition: border-color .2s, box-shadow .2s; }
+.field:focus-within { border-color: rgba(177, 77, 255, 0.8); box-shadow: 0 0 0 4px rgba(177, 77, 255, 0.18); }
+.field ion-icon { font-size: 20px; color: var(--muted); flex-shrink: 0; }
+.field input { flex: 1; background: transparent; border: 0; outline: 0; color: var(--text); font: 500 16px var(--font); min-width: 0; }
+.field input::placeholder { color: var(--dim); }
+.error-box { background: rgba(255, 77, 109, 0.1); border: 1px solid rgba(255, 77, 109, 0.35); color: #ff9aae; padding: 12px 14px; border-radius: 14px; font-size: 14px; }
+
+/* ── Chips ── */
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 11px; border-radius: 999px; font-size: 12.5px; font-weight: 700; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+.chip ion-icon { font-size: 14px; }
+.chip.points { background: rgba(255, 210, 61, 0.12); border-color: rgba(255, 210, 61, 0.35); color: var(--gold); }
+.chip.done { background: rgba(182, 255, 61, 0.12); border-color: rgba(182, 255, 61, 0.4); color: var(--lime); }
+.chip.pending { background: rgba(0, 224, 255, 0.1); border-color: rgba(0, 224, 255, 0.35); color: var(--cyan); }
+.chip.locked { color: var(--dim); }
+.chip.live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #ff3d5a; box-shadow: 0 0 10px #ff3d5a; animation: pulse 1.4s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ── Barra de progreso ── */
+.bar { height: 12px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: inherit; background: var(--grad-brand); box-shadow: 0 0 18px rgba(177,77,255,.7); transition: width 0.9s cubic-bezier(.2,.9,.2,1); }
+
+/* ── Encabezado ── */
+.avatar { width: 46px; height: 46px; border-radius: 16px; display: grid; place-items: center; font-weight: 800; font-size: 18px; background: var(--grad-brand); box-shadow: 0 6px 20px rgba(255, 61, 129, 0.35); flex-shrink: 0; }
+.hello { font-size: 14px; color: var(--muted); }
+.hello-name { font-size: 22px; font-weight: 800; line-height: 1.1; }
+
+/* ── Tarjeta de puntos ── */
+.score-card { padding: 22px; overflow: hidden; }
+.score-card .big { font-size: 64px; font-weight: 700; line-height: 1; }
+.score-card .of { font-size: 18px; color: var(--muted); font-weight: 600; margin-left: 6px; }
+
+/* ── Tarjetas de misión ── */
+.mission { display: flex; align-items: center; gap: 16px; padding: 16px; cursor: pointer; transition: transform .2s ease, border-color .2s; animation: rise .5s ease both; }
+.mission:active { transform: scale(0.98); }
+.mission .icon { width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; flex-shrink: 0; position: relative; }
+.mission .icon ion-icon { font-size: 28px; color: #fff; }
+.mission .icon::after { content: ''; position: absolute; inset: 6px; border-radius: inherit; filter: blur(16px); opacity: .7; background: inherit; z-index: -1; }
+.mission .title { font-size: 17px; font-weight: 700; }
+.mission .desc { font-size: 13.5px; color: var(--muted); margin: 3px 0 9px; line-height: 1.35; }
+.mission .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.mission .go { color: var(--dim); font-size: 22px; flex-shrink: 0; }
+.mission.completed { border-color: rgba(182, 255, 61, 0.35); }
+.mission.completed .go { color: var(--lime); }
+.mission.locked { opacity: 0.55; }
+.mission.locked .icon { filter: grayscale(1); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ── Barra superior de misiones ── */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+.icon-btn { width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); cursor: pointer; }
+.icon-btn ion-icon { font-size: 22px; }
+.mission-hero { text-align: center; margin: 4px 0 22px; }
+.mission-hero .badge { width: 74px; height: 74px; border-radius: 24px; display: grid; place-items: center; margin: 0 auto 14px; }
+.mission-hero .badge ion-icon { font-size: 36px; color: #fff; }
+.mission-hero h1 { font-size: 28px; font-weight: 800; margin: 0 0 6px; }
+.mission-hero p { margin: 0; color: var(--muted); }
+.mission-hero p b { white-space: nowrap; }
+
+/* ── Visor de cámara ── */
+.viewfinder { position: relative; aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid var(--border); display: grid; place-items: center; }
+.viewfinder img { width: 100%; height: 100%; object-fit: cover; }
+.viewfinder .corner { position: absolute; width: 38px; height: 38px; border: 3px solid #fff; opacity: .85; }
+.viewfinder .tl { top: 16px; left: 16px; border-right: 0; border-bottom: 0; border-radius: 12px 0 0 0; }
+.viewfinder .tr { top: 16px; right: 16px; border-left: 0; border-bottom: 0; border-radius: 0 12px 0 0; }
+.viewfinder .bl { bottom: 16px; left: 16px; border-right: 0; border-top: 0; border-radius: 0 0 0 12px; }
+.viewfinder .br { bottom: 16px; right: 16px; border-left: 0; border-top: 0; border-radius: 0 0 12px 0; }
+.viewfinder .placeholder { text-align: center; color: var(--muted); padding: 20px; }
+.viewfinder .placeholder ion-icon { font-size: 54px; opacity: .6; }
+.scanline { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--pink), transparent); box-shadow: 0 0 14px var(--pink); animation: scan 2.8s ease-in-out infinite; }
+@keyframes scan { 0%, 100% { top: 12%; } 50% { top: 88%; } }
+
+/* ── Radar (misión de movimiento) ── */
+.radar { position: relative; width: 250px; height: 250px; margin: 6px auto 16px; display: grid; place-items: center; }
+.radar .ring-pulse { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(0, 224, 255, 0.5); animation: ripple 2.6s ease-out infinite; }
+.radar .ring-pulse:nth-child(2) { animation-delay: 0.85s; }
+.radar .ring-pulse:nth-child(3) { animation-delay: 1.7s; }
+@keyframes ripple { from { transform: scale(0.45); opacity: 0.9; } to { transform: scale(1.15); opacity: 0; } }
+
+/* ── Anillo de progreso ── */
+.ring-wrap { position: relative; display: grid; place-items: center; }
+.ring-wrap svg { transform: rotate(-90deg); }
+.ring-wrap .ring-center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.ring-wrap circle.track { stroke: rgba(255,255,255,0.08); }
+.ring-wrap circle.value { transition: stroke-dashoffset 0.35s ease; filter: drop-shadow(0 0 8px var(--ring-glow, #b14dff)); }
+
+/* ── Estadísticas ── */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat { padding: 16px; }
+.stat .label { font-size: 12.5px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.stat .value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+.info-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 2px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14.5px; }
+.info-line:last-child { border-bottom: 0; }
+.info-line .k { color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.info-line .k ion-icon { font-size: 18px; }
+
+/* ── Ranking ── */
+.podium { display: grid; grid-template-columns: 1fr 1.15fr 1fr; align-items: end; gap: 10px; margin: 40px 0 18px; }
+.podium .spot { text-align: center; }
+.podium .pav { width: 62px; height: 62px; border-radius: 22px; margin: 0 auto 8px; display: grid; place-items: center; font-weight: 800; font-size: 22px; position: relative; }
+.podium .first .pav { width: 78px; height: 78px; font-size: 28px; }
+.podium .crown { position: absolute; top: -22px; font-size: 24px; }
+.podium .pname { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 2px; }
+.podium .ppts { font-family: var(--font-num); color: var(--gold); font-weight: 700; font-size: 14px; }
+.podium .block { margin-top: 10px; border-radius: 16px 16px 6px 6px; display: grid; place-items: center; font-family: var(--font-num); font-weight: 700; font-size: 26px; color: rgba(255,255,255,0.9); border: 1px solid var(--border); }
+.podium .first .block { height: 110px; background: linear-gradient(180deg, rgba(255,210,61,0.35), rgba(255,210,61,0.05)); }
+.podium .second .block { height: 82px; background: linear-gradient(180deg, rgba(0,224,255,0.3), rgba(0,224,255,0.04)); }
+.podium .third .block { height: 64px; background: linear-gradient(180deg, rgba(255,61,129,0.3), rgba(255,61,129,0.04)); }
+.rank-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin-bottom: 10px; animation: rise .45s ease both; }
+.rank-row .pos { width: 34px; font-family: var(--font-num); font-weight: 700; font-size: 18px; color: var(--muted); text-align: center; }
+.rank-row .mini { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; font-weight: 800; }
+.rank-row .who { flex: 1; min-width: 0; }
+.rank-row .who b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-row .who small { color: var(--muted); }
+.rank-row .pts { font-family: var(--font-num); font-weight: 700; color: var(--gold); font-size: 18px; }
+.rank-row.me { border-color: rgba(177, 77, 255, 0.7); background: rgba(177, 77, 255, 0.12); box-shadow: 0 0 30px rgba(177, 77, 255, 0.25); }
+
+/* ── Tab bar ── */
+ion-tab-bar { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border) !important; height: calc(68px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+ion-tab-button { --color-selected: #fff; font-weight: 600; }
+ion-tab-button ion-icon { font-size: 24px; }
+ion-tab-button.tab-selected ion-icon { color: var(--violet); filter: drop-shadow(0 0 8px rgba(177,77,255,.9)); }
+
+/* ── Confeti y banner de recompensa ── */
+.confetti-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999; }
+.reward-pop { position: fixed; left: 50%; top: 38%; z-index: 100000; pointer-events: none; transform: translate(-50%, -50%); text-align: center; animation: pop 2.4s cubic-bezier(.2,1.4,.3,1) both; }
+.reward-pop .pts { font-family: var(--font-num); font-size: 76px; font-weight: 700; line-height: 1; background: linear-gradient(135deg, #ffd23d, #ff8a3d); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 6px 24px rgba(255, 170, 61, 0.6)); }
+.reward-pop .txt { font-size: 18px; font-weight: 800; margin-top: 6px; text-shadow: 0 2px 18px rgba(0,0,0,.6); }
+@keyframes pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  18% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  30% { transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -80%) scale(0.95); }
+}
+
+/* ── Misión de permanencia ── */
+.still-state { text-align: center; font-weight: 700; margin-top: 4px; min-height: 24px; }
+.shake { animation: shake .45s ease; }
+@keyframes shake { 10%, 90% { transform: translateX(-2px); } 20%, 80% { transform: translateX(4px); } 30%, 50%, 70% { transform: translateX(-8px); } 40%, 60% { transform: translateX(8px); } }
+.note { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.4; }
+.demo { border: 1px dashed rgba(255, 210, 61, 0.5); border-radius: 16px; padding: 12px; }
+.demo-title { font-size: 12px; font-weight: 800; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; text-align: center; }
+
+/* ── Logo ── */
+.logo { width: 86px; height: 86px; border-radius: 28px; margin: 0 auto 18px; display: grid; place-items: center; background: var(--grad-brand); box-shadow: 0 18px 50px rgba(177, 77, 255, 0.55); animation: bob 4s ease-in-out infinite; }
+.logo ion-icon { font-size: 44px; color: #fff; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+.brand { font-size: 44px; font-weight: 800; text-align: center; letter-spacing: -0.03em; margin: 0; }
+.tagline { text-align: center; color: var(--muted); margin: 8px 0 28px; font-size: 16px; line-height: 1.45; }
+
+.spinner-page { height: 100%; display: grid; place-items: center; background: var(--bg); }
+
+/* Evita que el brillo del anillo de progreso se corte */
+.ring-wrap svg { overflow: visible; }
