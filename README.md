@@ -2,11 +2,11 @@
 
 Repositorio de trabajos del curso Desarrollo de Software para Plataformas Móviles.
 
-Tecnologías: React · Ionic · Vite · Service Workers (PWA)
+Tecnologías: React · Ionic · Vite · Capacitor · Firebase · Service Workers (PWA)
 
 ## Organización
 
-Cada challenge y el parcial están en su propia rama del repositorio:
+Cada challenge y cada parcial están en su propia rama del repositorio:
 
 | Rama | Contenido |
 |---|---|
@@ -14,6 +14,7 @@ Cada challenge y el parcial están en su propia rama del repositorio:
 | `challenge-2` | Versión PWA de la app de contactos |
 | `challenge-3` | Gestor de tareas (Ionic) |
 | `challenge-4` | Login con sesión persistente (Ionic) |
-| `parcial-1` | MediClinic — apps PWA e Ionic para el primer parcial |
+| `parcial-1-jose-mesa` | MediClinic — apps PWA e Ionic para el primer parcial |
+| `parcial-2-jose-mesa` | Kapkan — app de misiones con cámara, GPS, acelerómetro, vibración, notificaciones y Firebase ([demo en vivo](https://gilded-bombolone-f9fe42.netlify.app)) |
 
 Para ver el trabajo de un challenge en particular, cambia de rama desde el selector de GitHub o con `git checkout <nombre-rama>`.
